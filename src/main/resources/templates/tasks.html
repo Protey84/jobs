@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Список укладок</title>
+
+  <div th:replace="fragments/header :: header-css"/>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+
+  <div class="starter-template">
+    <table>
+      <tr>
+        <th>Дата</th>
+        <th>Адрес</th>
+        <th>Телефон</th>
+      </tr>
+      <th:block th:each="task : ${tasks}">
+        <tr>
+          <td th:text="${task.getDate()}"></td>
+          <td th:text="${task.getAdress()}"></td>
+          <td th:text="${task.getPhone()}"></td>
+        </tr>
+      </th:block>
+    </table>
+  </div>
+
+</div>
+<!-- /.container -->
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>
