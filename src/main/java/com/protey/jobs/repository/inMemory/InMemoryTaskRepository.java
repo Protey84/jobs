@@ -1,13 +1,13 @@
 package com.protey.jobs.repository.inMemory;
 
 import com.protey.jobs.entity.Job;
+import com.protey.jobs.entity.Master;
 import com.protey.jobs.entity.Task;
 import com.protey.jobs.entity.Type;
 import com.protey.jobs.repository.TaskRepository;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -18,13 +18,13 @@ public class InMemoryTaskRepository extends InMemoryBaseRepository<Task> impleme
 
     public void init(){
         map.clear();
-        ArrayList<Job> jobs=new ArrayList<>();
-        jobs.add(new Job(Type.LAM_STRAIGHT, 30));
-        jobs.add(new Job(Type.LIN_WITH, 10));
-        this.save(new Task(jobs, LocalDate.of(2021, 8, 3), "Новгородская, 36-15", "8921315670"));
-        jobs=new ArrayList<>();
-        jobs.add(new Job(Type.LAM_STRAIGHT, 10));
-        this.save(new Task(jobs, LocalDate.of(2021, 8, 22), "Ленинградская, 2-7", "89113264516"));
+        Task task = new Task("2536", LocalDate.of(2021, 8, 3), "Новгородская, 36-15", "8921315670", Master.MASTER_1);
+        task.addJob(new Job(Type.LAM_STRAIGHT, 30));
+        task.addJob(new Job(Type.LIN_WITH, 10));
+        this.save(task);
+        task = new Task("0356", LocalDate.of(2021, 8, 22), "Ленинградская, 2-7", "89113264516", Master.MASTER_2);
+        task.addJob(new Job(Type.LAM_STRAIGHT, 10));
+        this.save(task);
     }
 
     public InMemoryTaskRepository() {

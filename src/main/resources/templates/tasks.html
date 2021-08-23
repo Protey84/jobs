@@ -17,13 +17,13 @@
       <tr>
         <th>Дата</th>
         <th>Адрес</th>
-        <th>Телефон</th>
+        <th>№ продажи</th>
       </tr>
       <th:block th:each="task : ${tasks}">
         <tr>
           <td th:text="${task.getDate()}"></td>
           <td th:text="${task.getAdress()}"></td>
-          <td th:text="${task.getPhone()}"></td>
+          <td><a th:href="@{tasks/{id}(id=${task.getId()})}"><span th:text="${task.getOrder()}"></span></a></td>
         </tr>
       </th:block>
     </table>

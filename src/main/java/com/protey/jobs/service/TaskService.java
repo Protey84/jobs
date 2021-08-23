@@ -35,12 +35,12 @@ public class TaskService {
     }
 
     public void update(Task task, int userId) {
-        Assert.notNull(task, "meal must not be null");
+        Assert.notNull(task, "task must not be null");
         checkNotFoundWithId(repository.save(task), task.getId());
     }
 
     public Task create(Task task) {
-        Assert.notNull(task, "meal must not be null");
+        Assert.notNull(task, "task must not be null");
         return repository.save(task);
     }
 

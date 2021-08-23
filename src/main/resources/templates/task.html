@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Укладка</title>
+
+</head>
+<body>
+
+<div class="container">
+
+  <div class="starter-template">
+    <table>
+      <tr>
+        <th>Дата</th>
+        <td th:text="${task.getDate()}"></td>
+      </tr>
+      <tr>
+        <th>Адресс</th>
+        <td th:text="${task.getAdress()}"></td>
+      </tr>
+      <tr>
+        <th>Телефон</th>
+        <td th:text="${task.getPhone()}"></td>
+      </tr>
+      <tr>
+        <th>Перечень работ</th>
+        <td>
+        <th:block th:each="job : ${task.getJobs()}">
+        <span th:text="${job.getType()}+' '+${job.getQuantity()}"></span><br>
+        </th:block>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+
+</div>
+
+</body>
+</html>

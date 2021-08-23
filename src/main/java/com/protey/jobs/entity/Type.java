@@ -18,8 +18,6 @@ public enum Type {
 
     @Override
     public String toString() {
-        return "Type{" +
-                "title='" + title + '\'' +
-                '}';
+        return title;
     }
 }
