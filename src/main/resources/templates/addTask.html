@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Добавить укладку</title>
+
+</head>
+<body>
+
+<div class="container">
+
+  <div class="starter-template">
+    <h2>Новая укладка</h2>
+    <form th:action="/addTask" method="post" th:object="${task}">
+      <label>Дата укладки: <input id="date" required type="date" th:field="*{date}"/></label><br>
+      <label>№ ведомости: <input id="order" required type="text" th:field="*{order}"/></label><br>
+      <label>Адрес: <input id="adress" required type="text" th:field="*{adress}"/></label><br>
+      <label>Телефон: <input id="phone" required type="tel" th:field="*{phone}"/></label><br>
+      <label for="master">Role</label>
+      <select id="master" required th:field="*{master}"><br>
+        <option value="" hidden>Выберите мастера</option>
+        <option th:each="master : ${T(com.protey.jobs.entity.Master).values()}"
+                th:value="${master}"
+                th:text="${master}">
+        </option>
+      </select>
+      <input type="submit" value="Добавить укладку">
+    </form>
+  </div>
+
+</div>
+
+</body>
+</html>

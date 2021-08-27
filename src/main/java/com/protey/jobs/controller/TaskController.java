@@ -27,4 +27,10 @@ public class TaskController {
         model.addAttribute("task", task);
         return "task";
     }
+
+    @GetMapping("/addTask")
+    public String addTask(Model model){
+        model.addAttribute("task", new Task());
+        return "addTask";
+    }
 }

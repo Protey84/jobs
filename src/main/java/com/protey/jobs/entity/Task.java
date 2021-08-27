@@ -24,7 +24,6 @@ public class Task extends AbstractBaseEntity{
     private LocalDate date;
     private String adress;
     private String phone;
-    private boolean isActive;
     private Master master;
 
 
@@ -32,7 +31,6 @@ public class Task extends AbstractBaseEntity{
 
     public Task(String order, LocalDate date, String adress, String phone, Master master) {
         this.order=order;
-        this.jobs = jobs;
         this.date = date;
         this.adress = adress;
         this.phone = phone;
@@ -40,18 +38,12 @@ public class Task extends AbstractBaseEntity{
       //  this.lastChangerUser = lastChangerUser;
     }
 
-    public void addJob(Job job){
-        jobs.add(job);
-        job.setTask(this);
-    }
-
-    public void removeJob(Job job){
-        jobs.remove(job);
-        job.setTask(null);
-    }
-
     public Task() {
-
+        this.order="0";
+        this.date=LocalDate.now();
+        this.adress="";
+        this.master=Master.MASTER_3;
+        this.phone="";
     }
 
 }
