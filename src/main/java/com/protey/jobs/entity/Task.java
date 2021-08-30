@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -21,6 +22,7 @@ public class Task extends AbstractBaseEntity{
     @JsonManagedReference
     private ArrayList<Job> jobs;
     private String order;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate date;
     private String adress;
     private String phone;

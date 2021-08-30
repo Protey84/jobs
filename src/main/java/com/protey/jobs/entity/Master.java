@@ -11,8 +11,12 @@ public enum Master {
         this.title=s;
     }
 
+    public String getMaster() {
+        return title;
+    }
+
     @Override
     public String toString() {
-        return title;
+        return name();
     }
 }

@@ -5,7 +5,9 @@ import com.protey.jobs.service.TaskService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class TaskController {
@@ -29,8 +31,14 @@ public class TaskController {
     }
 
     @GetMapping("/addTask")
-    public String addTask(Model model){
+    public String getForm(Model model){
         model.addAttribute("task", new Task());
         return "addTask";
+    }
+
+    @PostMapping("/addTask")
+    public String addTask(Model model, @ModelAttribute Task task){
+        service.create(task);
+        return "redirect:/tasks";
     }
 }
